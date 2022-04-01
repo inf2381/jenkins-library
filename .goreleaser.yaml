@@ -21,13 +21,16 @@ release:
 
   name_template: "v{{.Version}}"
 
-brews:
-  - homepage: 'https://github.com/inf2381/jenkins-library'
-    description: 'Shared library for Continuous Delivery pipelines.'
-    folder: Formula
-    commit_author:
-      name: inf2381
-      email: marc.bormeth@sap.com
-    tap:
-      owner: Marc Bormeth
-      name: PiperTest
+  extra_files:
+    - glob: dist/**/piper_!(tar.gz)
+
+#brews:
+#  - homepage: 'https://github.com/inf2381/jenkins-library'
+#    description: 'Shared library for Continuous Delivery pipelines.'
+#    folder: Formula
+#    commit_author:
+#      name: inf2381
+#      email: marc.bormeth@sap.com
+#    tap:
+#      owner: Marc Bormeth
+#      name: PiperTest
