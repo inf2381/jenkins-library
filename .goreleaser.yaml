@@ -19,10 +19,13 @@ release:
     owner: inf2381
     name: jenkins-library
 
+   ids:
+    - None
+
   name_template: "v{{.Version}}"
 
   extra_files:
-    - glob: dist/**/piper_!(tar.gz)
+    - glob: dist/**/piper_*!(tar.gz)
 
 #brews:
 #  - homepage: 'https://github.com/inf2381/jenkins-library'
