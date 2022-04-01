@@ -19,8 +19,8 @@ release:
     owner: inf2381
     name: jenkins-library
 
-   ids:
-    - None
+  ids:
+  - None
 
   name_template: "v{{.Version}}"
 
