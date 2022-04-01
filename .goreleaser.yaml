@@ -25,7 +25,7 @@ release:
   name_template: "v{{.Version}}"
 
   extra_files:
-    - glob: dist/**/piper_*!(tar.gz)
+    - glob: dist/**/piper_*
 
 #brews:
 #  - homepage: 'https://github.com/inf2381/jenkins-library'
