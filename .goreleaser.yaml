@@ -16,8 +16,8 @@ project_name: Piper
 
 release:
   github:
-    owner: SAP
-    name: https://github.com/SAP/jenkins-library.git
+    owner: inf2381
+    name: jenkins-library
 
   name_template: "v{{.Version}}"
 
