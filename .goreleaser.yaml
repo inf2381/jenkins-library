@@ -34,4 +34,4 @@ release:
   name_template: "v{{.Version}}"
 
   extra_files:
-    - glob: dist/**/piper_*
+    - glob: dist/piper_*
