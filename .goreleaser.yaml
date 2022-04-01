@@ -10,7 +10,16 @@ builds:
       - "-X github.com/SAP/jenkins-library/pkg/log.LibraryRepository={{ .Env.GITHUB_REPOSITORY }}"
       - "-X github.com/SAP/jenkins-library/pkg/telemetry.LibraryRepository=https://github.com/{{ .Env.GITHUB_REPOSITORY }}.git"
 
-    binary: "piper_{{ .Os }}_{{ .Arch }}"
+    ignore:
+      - goarch: 386
+      - goos: windows
+        goarch: arm
+      - goos: linux
+        goarch: arm
+
+    no_unique_dist_dir: true
+
+    binary: "piper_master-{{ .Os }}.{{ replace .Arch \"amd64\" \"x86_64\" }}"
 
 project_name: Piper
 
@@ -26,14 +35,3 @@ release:
 
   extra_files:
     - glob: dist/**/piper_*
-
-#brews:
-#  - homepage: 'https://github.com/inf2381/jenkins-library'
-#    description: 'Shared library for Continuous Delivery pipelines.'
-#    folder: Formula
-#    commit_author:
-#      name: inf2381
-#      email: marc.bormeth@sap.com
-#    tap:
-#      owner: Marc Bormeth
-#      name: PiperTest
