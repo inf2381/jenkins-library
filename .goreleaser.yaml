@@ -19,7 +19,7 @@ builds:
 
     no_unique_dist_dir: true
 
-    binary: "piper_master-{{ .Os }}.{{ replace .Arch \"amd64\" \"x86_64\" }}"
+    binary: "piper_master-{{ replace .Os \"windows\" \"win\" }}.{{ replace .Arch \"amd64\" \"x86_64\" }}"
 
 project_name: Piper
 
