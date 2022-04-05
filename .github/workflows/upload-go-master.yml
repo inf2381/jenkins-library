@@ -18,27 +18,27 @@ jobs:
         uses: goreleaser/goreleaser-action@v2
         with:
           version: latest
-          args: build
+          args: release --snapshot
       - name: Rename Linux Binary
         run: |
-          mv dist/Piper_linux_arm64/piper_master-linux_x86_64 dist/Piper_linux_arm64/piper_master
+          mv dist/piper_master-linux_x86_64 dist/piper_master
       - uses: SAP/project-piper-action@master
         with:
           piper-version: master
           command: githubPublishRelease
-          flags: --token ${{ secrets.GITHUB_TOKEN }} --version latest --assetPath ./piper_master
+          flags: --token ${{ secrets.GITHUB_TOKEN }} --version latest --assetPath ./dist/piper_master
       - uses: SAP/project-piper-action@master
         with:
           piper-version: master
           command: githubPublishRelease
-          flags: --token ${{ secrets.GITHUB_TOKEN }} --version latest --assetPath ./piper_master-darwin.x86_64
+          flags: --token ${{ secrets.GITHUB_TOKEN }} --version latest --assetPath ./dist/piper_master-darwin.x86_64
       - uses: SAP/project-piper-action@master
         with:
           piper-version: master
           command: githubPublishRelease
-          flags: --token ${{ secrets.GITHUB_TOKEN }} --version latest --assetPath ./piper_master-darwin.arm64
+          flags: --token ${{ secrets.GITHUB_TOKEN }} --version latest --assetPath ./dist/piper_master-darwin.arm64
       - uses: SAP/project-piper-action@master
         with:
           piper-version: master
           command: githubPublishRelease
-          flags: --token ${{ secrets.GITHUB_TOKEN }} --version latest --assetPath ./piper_master-win.x86_64.exe
+          flags: --token ${{ secrets.GITHUB_TOKEN }} --version latest --assetPath ./dist/piper_master-win.x86_64.exe
